@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <header th:insert="blocks/header :: header"></header>
         <div class="container">
             <a class="navbar-brand" href="/">Job4jDreamJob</a>
             <div class="collapse navbar-collapse">
@@ -36,6 +36,7 @@
             <li><a th:href="@{/candidates/create}">Создать резюме</a></li>
         </ul>
     </div>
+    <footer th:insert="blocks/footer :: footer"></footer>
 </div>
 </body>
 </html>
