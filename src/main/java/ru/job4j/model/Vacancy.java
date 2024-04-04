@@ -61,7 +61,7 @@ public class Vacancy {
             return false;
         }
         Vacancy vacancy = (Vacancy) o;
-        return id == vacancy.id && Objects.equals(title, vacancy.title) && Objects.equals(description, vacancy.description) && Objects.equals(creationDate, vacancy.creationDate);
+        return id == vacancy.id;
     }
 
     @Override
