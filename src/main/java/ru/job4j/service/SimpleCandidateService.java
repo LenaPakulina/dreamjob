@@ -1,5 +1,6 @@
 package ru.job4j.service;
 
+import org.springframework.stereotype.Service;
 import ru.job4j.model.Candidate;
 import ru.job4j.repository.CandidateRepository;
 import ru.job4j.repository.MemoryCandidateRepository;
@@ -7,17 +8,13 @@ import ru.job4j.repository.MemoryCandidateRepository;
 import java.util.Collection;
 import java.util.Optional;
 
+@Service
 public class SimpleCandidateService implements CandidateService {
 
-    private static final SimpleCandidateService INSTANCE = new SimpleCandidateService();
+    private final CandidateRepository repository;
 
-    private final CandidateRepository repository = MemoryCandidateRepository.getInstance();
-
-    public SimpleCandidateService() {
-    }
-
-    public static SimpleCandidateService getInstance() {
-        return INSTANCE;
+    public SimpleCandidateService(CandidateRepository repository) {
+        this.repository = repository;
     }
 
     @Override

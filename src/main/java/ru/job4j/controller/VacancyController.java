@@ -11,7 +11,11 @@ import ru.job4j.service.VacancyService;
 @RequestMapping("/vacancies")
 public class VacancyController {
 
-    private final VacancyService vacancyService = SimpleVacancyService.getInstance();
+    private final VacancyService vacancyService;
+
+    public VacancyController(VacancyService service) {
+        this.vacancyService = service;
+    }
 
     @GetMapping
     public String getAll(Model model) {
