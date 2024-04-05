@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface CandidateRepository {
     Candidate save(Candidate candidate);
 
-    Candidate deleteById(int id);
+    void deleteById(int id);
 
     boolean update(Candidate candidate);
 
