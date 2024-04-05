@@ -17,18 +17,22 @@ public class Vacancy {
 
     private int cityId;
 
+    private int fileId;
+
     public Vacancy(int id,
                    String title,
                    String description,
                    LocalDateTime creationDate,
                    boolean visible,
-                   int cityId) {
+                   int cityId,
+                   int fileId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
         this.visible = visible;
         this.cityId = cityId;
+        this.fileId = fileId;
     }
 
     public Vacancy() {
@@ -80,6 +84,14 @@ public class Vacancy {
 
     public void setCityId(int cityId) {
         this.cityId = cityId;
+    }
+
+    public int getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(int fileId) {
+        this.fileId = fileId;
     }
 
     @Override
