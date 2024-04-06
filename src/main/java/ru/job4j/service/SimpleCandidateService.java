@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import ru.job4j.dto.FileDto;
 import ru.job4j.model.Candidate;
 import ru.job4j.repository.CandidateRepository;
-import ru.job4j.repository.MemoryCandidateRepository;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -16,8 +15,8 @@ public class SimpleCandidateService implements CandidateService {
 
     private final FileService fileService;
 
-    public SimpleCandidateService(CandidateRepository repository, FileService fileService) {
-        this.repository = repository;
+    public SimpleCandidateService(CandidateRepository sql2oCandidateRepository, FileService fileService) {
+        this.repository = sql2oCandidateRepository;
         this.fileService = fileService;
     }
 
