@@ -33,8 +33,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
     }
 
     @Override
-    public Vacancy deleteById(int id) {
-        return vacancies.remove(id);
+    public boolean deleteById(int id) {
+        return vacancies.remove(id) != null;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 (id, oldVacancy) -> new Vacancy(oldVacancy.getId(),
                         vacancy.getTitle(),
                         vacancy.getDescription(),
-                        vacancy.getCreationDate(),
+                        oldVacancy.getCreationDate(),
                         vacancy.getVisible(),
                         vacancy.getCityId(),
                         vacancy.getFileId())) != null;

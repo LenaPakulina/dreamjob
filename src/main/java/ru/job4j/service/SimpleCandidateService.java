@@ -33,7 +33,7 @@ public class SimpleCandidateService implements CandidateService {
     }
 
     @Override
-    public Candidate deleteById(int id) {
+    public boolean deleteById(int id) {
         return repository.deleteById(id);
     }
 

@@ -33,7 +33,7 @@ public class SimpleVacancyService implements VacancyService {
     }
 
     @Override
-    public Vacancy deleteById(int id) {
+    public boolean deleteById(int id) {
         return repository.deleteById(id);
     }
 

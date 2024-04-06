@@ -33,8 +33,8 @@ public class MemoryCandidateRepository implements CandidateRepository {
     }
 
     @Override
-    public Candidate deleteById(int id) {
-        return candidates.remove(id);
+    public boolean deleteById(int id) {
+        return candidates.remove(id) != null;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class MemoryCandidateRepository implements CandidateRepository {
                 (id, oldData) -> new Candidate(oldData.getId(),
                         candidate.getName(),
                         candidate.getDescription(),
-                        candidate.getCreationDate(),
+                        oldData.getCreationDate(),
                         candidate.getCityId(),
                         candidate.getFileId())) != null;
     }

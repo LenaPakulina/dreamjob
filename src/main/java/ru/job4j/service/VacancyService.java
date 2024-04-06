@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface VacancyService {
     Vacancy save(Vacancy vacancy, FileDto image);
 
-    Vacancy deleteById(int id);
+    boolean deleteById(int id);
 
     boolean update(Vacancy vacancy, FileDto image);
 

@@ -79,7 +79,7 @@ public class CandidateController {
     @GetMapping("/delete/{id}")
     public String delete(Model model, @PathVariable int id) {
         var isDeleted = candidateService.deleteById(id);
-        if (isDeleted == null) {
+        if (isDeleted) {
             model.addAttribute("message", "Кандидат с указанным идентификатором не найден");
             return "errors/404";
         }
