@@ -40,9 +40,8 @@ public class Sql2oCandidateRepository implements CandidateRepository {
         try (var connection = sql2o.open()) {
             var query = connection.createQuery("DELETE FROM candidates WHERE id = :id");
             query.addParameter("id", id);
-            query.executeUpdate();
+            return query.executeUpdate().getResult() > 0;
         }
-        return true;
     }
 
     @Override
