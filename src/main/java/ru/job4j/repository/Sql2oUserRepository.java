@@ -2,6 +2,7 @@ package ru.job4j.repository;
 
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 import ru.job4j.model.File;
 import ru.job4j.model.User;
 import ru.job4j.model.Vacancy;
@@ -28,6 +29,8 @@ public class Sql2oUserRepository implements UserRepository {
             int generatedId = query.executeUpdate().getKey(Integer.class);
             user.setId(generatedId);
             return Optional.of(user);
+        } catch (Sql2oException exception) {
+            return Optional.empty();
         }
     }
 

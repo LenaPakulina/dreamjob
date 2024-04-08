@@ -52,6 +52,6 @@ class Sql2oUserRepositoryTest {
         sql2oUserRepository.save(user1);
         User savedUser1 = sql2oUserRepository.findByEmailAndPassword(user1.getEmail(), user1.getName()).get();
         assertThat(savedUser1).usingRecursiveComparison().isEqualTo(user1);
-        assertThatThrownBy(() -> sql2oUserRepository.save(user2)).isInstanceOf(Sql2oException.class);
+        assertThat(sql2oUserRepository.save(user2).isEmpty()).isTrue();
     }
 }
