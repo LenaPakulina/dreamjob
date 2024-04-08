@@ -40,7 +40,7 @@ class Sql2oUserRepositoryTest {
     @Test
     public void whenSaveThenGetSame() {
         User user = sql2oUserRepository.save(new User(0, "dog@mail.ru", "login", "password")).get();
-        User savedUser = sql2oUserRepository.findByEmailAndPassword(user.getEmail(), user.getName()).get();
+        User savedUser = sql2oUserRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()).get();
         assertThat(savedUser).usingRecursiveComparison().isEqualTo(user);
     }
 
@@ -50,7 +50,7 @@ class Sql2oUserRepositoryTest {
         User user1 = new User(0, email, "login", "password");
         User user2 = new User(0, email, "login1", "password1");
         sql2oUserRepository.save(user1);
-        User savedUser1 = sql2oUserRepository.findByEmailAndPassword(user1.getEmail(), user1.getName()).get();
+        User savedUser1 = sql2oUserRepository.findByEmailAndPassword(user1.getEmail(), user1.getPassword()).get();
         assertThat(savedUser1).usingRecursiveComparison().isEqualTo(user1);
         assertThat(sql2oUserRepository.save(user2).isEmpty()).isTrue();
     }
