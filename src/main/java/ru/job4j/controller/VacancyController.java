@@ -9,6 +9,9 @@ import ru.job4j.model.Vacancy;
 import ru.job4j.service.CityService;
 import ru.job4j.service.SimpleVacancyService;
 import ru.job4j.service.VacancyService;
+import ru.job4j.utils.UserSession;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/vacancies")
@@ -24,13 +27,15 @@ public class VacancyController {
     }
 
     @GetMapping
-    public String getAll(Model model) {
+    public String getAll(Model model, HttpSession session) {
+        UserSession.setUserFromSession(model, session);
         model.addAttribute("vacancies", vacancyService.findAll());
         return "vacancies/list";
     }
 
     @GetMapping("/create")
-    public String getCreationPage(Model model) {
+    public String getCreationPage(Model model, HttpSession session) {
+        UserSession.setUserFromSession(model, session);
         model.addAttribute("cities", cityService.findAll());
         return "vacancies/create";
     }
@@ -47,12 +52,13 @@ public class VacancyController {
     }
 
     @GetMapping("/{id}")
-    public String getById(Model model, @PathVariable int id) {
+    public String getById(Model model, @PathVariable int id, HttpSession session) {
         var vacancyOptional = vacancyService.findById(id);
         if (vacancyOptional.isEmpty()) {
             model.addAttribute("message", "Вакансия с указанным идентификатором не найдена");
             return "errors/404";
         }
+        UserSession.setUserFromSession(model, session);
         model.addAttribute("cities", cityService.findAll());
         model.addAttribute("vacancy", vacancyOptional.get());
         return "vacancies/one";
