@@ -4,13 +4,8 @@ import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import ru.job4j.dto.FileDto;
 import ru.job4j.model.User;
-import ru.job4j.model.Vacancy;
-import ru.job4j.repository.UserRepository;
 import ru.job4j.service.UserService;
-import ru.job4j.utils.UserSession;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,7 +22,6 @@ public class UserController {
 
     @GetMapping("/register")
     public String getRegistrationPage(Model model, HttpSession session) {
-        UserSession.setUserFromSession(model, session);
         return "users/register";
     }
 
@@ -43,7 +37,6 @@ public class UserController {
 
     @GetMapping("/login")
     public String getLoginPage(Model model, HttpSession session) {
-        UserSession.setUserFromSession(model, session);
         return "users/login";
     }
 

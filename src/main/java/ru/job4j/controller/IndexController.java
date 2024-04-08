@@ -1,20 +1,13 @@
 package ru.job4j.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import ru.job4j.model.User;
-import ru.job4j.utils.UserSession;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
 
     @GetMapping({"/", "/index"})
-    public String getIndex(Model model, HttpSession session) {
-        UserSession.setUserFromSession(model, session);
+    public String getIndex() {
         return "index";
     }
 }

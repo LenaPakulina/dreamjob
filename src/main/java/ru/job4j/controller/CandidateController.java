@@ -8,8 +8,6 @@ import ru.job4j.dto.FileDto;
 import ru.job4j.model.Candidate;
 import ru.job4j.service.CandidateService;
 import ru.job4j.service.CityService;
-import ru.job4j.service.SimpleCandidateService;
-import ru.job4j.utils.UserSession;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -30,14 +28,12 @@ public class CandidateController {
 
     @GetMapping
     public String getAll(Model model, HttpSession session) {
-        UserSession.setUserFromSession(model, session);
         model.addAttribute("candidates", candidateService.findAll());
         return "candidates/list";
     }
 
     @GetMapping("/create")
     public String getCreationPage(Model model, HttpSession session) {
-        UserSession.setUserFromSession(model, session);
         model.addAttribute("cities", cityService.findAll());
         return "candidates/create";
     }
@@ -60,7 +56,6 @@ public class CandidateController {
             model.addAttribute("message", "Кандидат с указанным идентификатором не найден");
             return "errors/404";
         }
-        UserSession.setUserFromSession(model, session);
         model.addAttribute("cities", cityService.findAll());
         model.addAttribute("candidate", candidateOptional.get());
         return "candidates/one";

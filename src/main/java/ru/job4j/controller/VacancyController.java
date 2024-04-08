@@ -7,9 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.job4j.dto.FileDto;
 import ru.job4j.model.Vacancy;
 import ru.job4j.service.CityService;
-import ru.job4j.service.SimpleVacancyService;
 import ru.job4j.service.VacancyService;
-import ru.job4j.utils.UserSession;
 
 import javax.servlet.http.HttpSession;
 
@@ -28,14 +26,12 @@ public class VacancyController {
 
     @GetMapping
     public String getAll(Model model, HttpSession session) {
-        UserSession.setUserFromSession(model, session);
         model.addAttribute("vacancies", vacancyService.findAll());
         return "vacancies/list";
     }
 
     @GetMapping("/create")
     public String getCreationPage(Model model, HttpSession session) {
-        UserSession.setUserFromSession(model, session);
         model.addAttribute("cities", cityService.findAll());
         return "vacancies/create";
     }
@@ -58,7 +54,6 @@ public class VacancyController {
             model.addAttribute("message", "Вакансия с указанным идентификатором не найдена");
             return "errors/404";
         }
-        UserSession.setUserFromSession(model, session);
         model.addAttribute("cities", cityService.findAll());
         model.addAttribute("vacancy", vacancyOptional.get());
         return "vacancies/one";
