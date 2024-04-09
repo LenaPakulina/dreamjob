@@ -41,9 +41,7 @@ public class Sql2oUserRepository implements UserRepository {
                     .addParameter("email", email)
                     .addParameter("password", password);
             var user = query.executeAndFetchFirst(User.class);
-            return Optional.of(user);
-        } catch (Sql2oException exception) {
-            return Optional.empty();
+            return Optional.ofNullable(user);
         }
     }
 
