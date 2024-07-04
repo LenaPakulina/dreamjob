@@ -10,8 +10,7 @@ import ru.job4j.service.FileService;
 @RestController
 @RequestMapping("/files")
 public class FileController {
-
-    private FileService fileService;
+    private final FileService fileService;
 
     public FileController(FileService service) {
         fileService = service;

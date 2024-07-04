@@ -1,8 +1,9 @@
-package ru.job4j.repository;
+package ru.job4j.repository.impl.memory;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.model.Candidate;
 import ru.job4j.model.Vacancy;
+import ru.job4j.repository.CandidateRepository;
 
 import java.time.LocalDateTime;
 import java.util.Collection;

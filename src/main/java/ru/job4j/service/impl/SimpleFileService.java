@@ -1,10 +1,11 @@
-package ru.job4j.service;
+package ru.job4j.service.impl;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.job4j.dto.FileDto;
 import ru.job4j.model.File;
 import ru.job4j.repository.FileRepository;
+import ru.job4j.service.FileService;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,7 +15,6 @@ import java.util.UUID;
 
 @Service
 public class SimpleFileService implements FileService {
-
     private final FileRepository fileRepository;
 
     private final String storageDirectory;

@@ -15,7 +15,6 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/candidates")
 public class CandidateController {
-
     private final CandidateService candidateService;
 
     private final CityService cityService;

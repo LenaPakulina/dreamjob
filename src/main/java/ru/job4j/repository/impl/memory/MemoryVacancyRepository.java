@@ -1,7 +1,8 @@
-package ru.job4j.repository;
+package ru.job4j.repository.impl.memory;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.model.Vacancy;
+import ru.job4j.repository.VacancyRepository;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -11,7 +12,6 @@ import java.util.Optional;
 
 @Repository
 public class MemoryVacancyRepository implements VacancyRepository {
-
     private int nextId = 1;
 
     private final Map<Integer, Vacancy> vacancies = new HashMap<>();

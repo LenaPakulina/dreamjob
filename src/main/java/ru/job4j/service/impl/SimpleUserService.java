@@ -1,14 +1,14 @@
-package ru.job4j.service;
+package ru.job4j.service.impl;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.model.User;
 import ru.job4j.repository.UserRepository;
+import ru.job4j.service.UserService;
 
 import java.util.Optional;
 
 @Service
 public class SimpleUserService implements UserService {
-
     private final UserRepository userRepository;
 
     public SimpleUserService(UserRepository repository) {

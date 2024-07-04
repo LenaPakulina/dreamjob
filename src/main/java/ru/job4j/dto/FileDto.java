@@ -1,7 +1,6 @@
 package ru.job4j.dto;
 
 public class FileDto {
-
     private String name;
 
     private byte[] content;

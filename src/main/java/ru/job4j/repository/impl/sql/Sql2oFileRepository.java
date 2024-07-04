@@ -1,14 +1,14 @@
-package ru.job4j.repository;
+package ru.job4j.repository.impl.sql;
 
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.model.File;
+import ru.job4j.repository.FileRepository;
 
 import java.util.Optional;
 
 @Repository
 public class Sql2oFileRepository implements FileRepository {
-
     private final Sql2o sql2o;
 
     public Sql2oFileRepository(Sql2o sql2o) {

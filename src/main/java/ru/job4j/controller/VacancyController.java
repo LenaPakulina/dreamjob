@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/vacancies")
 public class VacancyController {
-
     private final VacancyService vacancyService;
 
     private final CityService cityService;

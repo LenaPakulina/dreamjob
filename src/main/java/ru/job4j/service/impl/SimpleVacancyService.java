@@ -1,17 +1,17 @@
-package ru.job4j.service;
+package ru.job4j.service.impl;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.dto.FileDto;
 import ru.job4j.model.Vacancy;
-import ru.job4j.repository.MemoryVacancyRepository;
 import ru.job4j.repository.VacancyRepository;
+import ru.job4j.service.FileService;
+import ru.job4j.service.VacancyService;
 
 import java.util.Collection;
 import java.util.Optional;
 
 @Service
 public class SimpleVacancyService implements VacancyService {
-
     private final VacancyRepository repository;
 
     private final FileService fileService;

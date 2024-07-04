@@ -1,4 +1,4 @@
-package ru.job4j.repository;
+package ru.job4j.repository.impl.sql;
 
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
@@ -6,13 +6,13 @@ import org.sql2o.Sql2oException;
 import ru.job4j.model.File;
 import ru.job4j.model.User;
 import ru.job4j.model.Vacancy;
+import ru.job4j.repository.UserRepository;
 
 import java.util.Collection;
 import java.util.Optional;
 
 @Repository
 public class Sql2oUserRepository implements UserRepository {
-
     private Sql2o sql2o;
 
     public Sql2oUserRepository(Sql2o sql2o) {

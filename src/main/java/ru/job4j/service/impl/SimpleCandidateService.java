@@ -1,16 +1,17 @@
-package ru.job4j.service;
+package ru.job4j.service.impl;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.dto.FileDto;
 import ru.job4j.model.Candidate;
 import ru.job4j.repository.CandidateRepository;
+import ru.job4j.service.CandidateService;
+import ru.job4j.service.FileService;
 
 import java.util.Collection;
 import java.util.Optional;
 
 @Service
 public class SimpleCandidateService implements CandidateService {
-
     private final CandidateRepository repository;
 
     private final FileService fileService;

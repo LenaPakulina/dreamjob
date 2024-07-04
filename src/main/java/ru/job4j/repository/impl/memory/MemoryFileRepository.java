@@ -1,7 +1,8 @@
-package ru.job4j.repository;
+package ru.job4j.repository.impl.memory;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.model.File;
+import ru.job4j.repository.FileRepository;
 
 import java.util.Map;
 import java.util.Optional;
@@ -10,7 +11,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class MemoryFileRepository implements FileRepository {
-
     private final AtomicInteger nextId = new AtomicInteger(0);
 
     private final Map<Integer, File> files = new ConcurrentHashMap<>();

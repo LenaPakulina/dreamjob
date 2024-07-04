@@ -1,15 +1,15 @@
-package ru.job4j.repository;
+package ru.job4j.repository.impl.sql;
 
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.model.Vacancy;
+import ru.job4j.repository.VacancyRepository;
 
 import java.util.Collection;
 import java.util.Optional;
 
 @Repository
 public class Sql2oVacancyRepository implements VacancyRepository {
-
     private final Sql2o sql2o;
 
     public Sql2oVacancyRepository(Sql2o sql2o) {
